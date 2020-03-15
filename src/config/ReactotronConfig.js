@@ -5,7 +5,9 @@ if (__DEV__) {
     .useReactNative()
     .connect();
 
-  console.tron = tron;
+  console.tron = tron; // Facilita o acesso ao reactotron;
 
+  // sempre que um refresh for feito a timeline
+  // do ReactoTron será limpa
   tron.clear();
 }

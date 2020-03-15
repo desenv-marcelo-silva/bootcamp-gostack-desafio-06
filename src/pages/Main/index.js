@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Keyboard, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import PropTypes from 'prop-types';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import api from '../../services/api';
 
 import {
@@ -20,21 +22,14 @@ import {
 } from './styles';
 
 export default class Main extends Component {
-  static navigationOptions = {
-    title: 'Usuários',
-  };
-
-  static propTypes = {
-    navigation: PropTypes.shape({
-      navigate: PropTypes.func,
-    }).isRequired,
-  };
-
-  state = {
-    newUser: '',
-    users: [],
-    loading: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      newUser: '',
+      users: [],
+      loading: false,
+    };
+  }
 
   async componentDidMount() {
     const users = await AsyncStorage.getItem('users');
@@ -46,7 +41,6 @@ export default class Main extends Component {
 
   componentDidUpdate(_, prevState) {
     const { users } = this.state;
-
     if (prevState.users !== users) {
       AsyncStorage.setItem('users', JSON.stringify(users));
     }
@@ -77,7 +71,6 @@ export default class Main extends Component {
 
   handleNavigate = user => {
     const { navigation } = this.props;
-
     navigation.navigate('User', { user });
   };
 
@@ -98,7 +91,7 @@ export default class Main extends Component {
           />
           <SubmitButton loading={loading} onPress={this.handleAddUser}>
             {loading ? (
-              <ActivityIndicator color="#FFF" />
+              <ActivityIndicator color="#fff" />
             ) : (
               <Icon name="add" size={20} color="#FFF" />
             )}
@@ -124,3 +117,9 @@ export default class Main extends Component {
     );
   }
 }
+
+Main.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
+};
