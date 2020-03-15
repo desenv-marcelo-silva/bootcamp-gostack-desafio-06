@@ -1,4 +1,4 @@
-package com.reactclass01;
+package com.desafio06;
 
 import android.app.Application;
 import android.content.Context;

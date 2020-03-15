@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'reactClass01' do
-  # Pods for reactClass01
+target 'desafio06' do
+  # Pods for desafio06
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -34,7 +34,7 @@ target 'reactClass01' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'reactClass01Tests' do
+  target 'desafio06Tests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -42,10 +42,10 @@ target 'reactClass01' do
   use_native_modules!
 end
 
-target 'reactClass01-tvOS' do
-  # Pods for reactClass01-tvOS
+target 'desafio06-tvOS' do
+  # Pods for desafio06-tvOS
 
-  target 'reactClass01-tvOSTests' do
+  target 'desafio06-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
