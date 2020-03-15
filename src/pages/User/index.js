@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import {
   Container,
@@ -83,6 +84,12 @@ export default class User extends React.Component {
     return user;
   }
 
+  handleStarred = item => {
+    const { navigation } = this.props;
+    const { html_url, name } = item;
+    navigation.navigate('Repository', { html_url, name });
+  }
+
   render() {
     const { stars, loading } = this.state;
     const user = this.getUserDataFromRoute();
@@ -105,13 +112,15 @@ export default class User extends React.Component {
               onRefresh={this.refreshList} // Função dispara quando o usuário arrasta a lista pra baixo
               refreshing={this.state.refreshing} // Variável que armazena um estado true/false que representa se a lista está atualizando
               renderItem={({ item }) => (
-                <Starred>
-                  <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
-                  <Info>
-                    <Title>{item.name}</Title>
-                    <Author>{item.owner.login}</Author>
-                  </Info>
-                </Starred>
+                <TouchableOpacity onPress={() => this.handleStarred(item)}>
+                  <Starred>
+                    <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
+                    <Info>
+                      <Title>{item.name}</Title>
+                      <Author>{item.owner.login}</Author>
+                    </Info>
+                  </Starred>
+                </TouchableOpacity>
               )}
           />)
       }
