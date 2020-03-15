@@ -25,6 +25,7 @@ export default class User extends React.Component {
       stars: [],
       loading: true,
       page: 1,
+      refreshing: false,
     };
   }
 
@@ -33,7 +34,7 @@ export default class User extends React.Component {
   }
 
   load = async (page = 1) => {
-    this.setState({ loading: true });
+    this.startLoading();
 
     const { stars } = this.state;
 
@@ -54,6 +55,26 @@ export default class User extends React.Component {
     const { page } = this.state;
     const nextPage = page + 1;
     this.load(nextPage);
+  }
+
+  startLoading() {
+    this.setState({ loading: true });
+  }
+
+  startRefresh() {
+    this.setState({refreshing: true});
+  }
+
+  endRefresh() {
+    this.setState({refreshing: false});
+  }
+
+  refreshList = async() => {
+    this.startRefresh();
+    
+    this.load(1);
+
+    this.endRefresh();
   }
 
   getUserDataFromRoute() {
@@ -81,6 +102,8 @@ export default class User extends React.Component {
               keyExtractor={star => String(star.id)}
               onEndReachedThreshold={0.2} // Carrega mais itens quando chegar em 20% do fim
               onEndReached={this.loadMore} // Função que carrega mais itens          
+              onRefresh={this.refreshList} // Função dispara quando o usuário arrasta a lista pra baixo
+              refreshing={this.state.refreshing} // Variável que armazena um estado true/false que representa se a lista está atualizando
               renderItem={({ item }) => (
                 <Starred>
                   <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
