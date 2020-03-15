@@ -39,11 +39,8 @@ export default class User extends React.Component {
 
     const user = this.getUserDataFromRoute();
     const response = await api
-      .get(`/users/${user.login}/starred?per_page=5&page=${page}`);
+      .get(`/users/${user.login}/starred?page=${page}`);
 
-    console.tron.warn(["stars", stars]);
-    console.tron.warn(["response.data",response.data]);
-    
     this.setState({ 
       stars: page >= 2 
             ? [...stars, ...response.data] 
