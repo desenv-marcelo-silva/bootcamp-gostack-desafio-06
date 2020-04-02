@@ -30,17 +30,17 @@
 
 ## :rocket: Sobre o desafio
 
-Nesse desafio você adicionará novas funcionalidades na aplicação que desenvolvemos ao longo desse módulo.
+Nesse desafio foram adicionadas novas funcionalidades na aplicação que foi desenvolvida ao longo do módulo do Bootcamp.
 
 ### Funcionalidades
 
 #### 1. Loading de repositórios
 
-Adicione um indicator de loading utilizando `<ActivityIndicator />` antes de carregar a lista de repositórios favoritados na tela de detalhes do Usuário.
+Um indicator de loading utilizando `<ActivityIndicator />` antes de carregar a lista de repositórios favoritados na tela de detalhes do Usuário.
 
 #### 2. Scroll infinito
 
-Adicione uma funcionalidade de scroll infinito na lista de repositórios favoritados. Assim que o usuário chegar nos **20%** do final de lista, busque pelos items na próxima página e adicione na lista. Seu código ficará da seguinte forma:
+Scroll infinito na lista de repositórios favoritados. Quano o usuário alcança **20%** do final de lista, novos items são buscados na próxima página e adicionados na lista. Exemplo:
 
 ```js
 <Stars
@@ -58,9 +58,9 @@ https://api.github.com/users/diego3g/starred?page=2
 
 #### 3. Pull to Refresh
 
-Adicione uma funcionalidade para quando o usuário arrastar a listagem de repositórios favoritados pra baixo atualize a lista resetando o estado, ou seja, volte o estado da paginação para a página 1 exibindo apenas os 30 primeiros itens.
+Quando o usuário arrastar a listagem de repositórios favoritados pra baixo a lista é atualizada, resetando o estado, ou seja, voltando o estado da paginação para a página 1 exibindo apenas os 30 primeiros itens.
 
-A funcionalidade "Pull to Refresh" existe por padrão na FlatList e pode ser implementada através do seguinte código:
+A funcionalidade "Pull to Refresh" existe por padrão na FlatList. Um exemplo de implementação:
 
 ```js
 <Stars
@@ -72,9 +72,8 @@ A funcionalidade "Pull to Refresh" existe por padrão na FlatList e pode ser imp
 
 #### 4. WebView
 
-Crie uma nova página na aplicação que vai ser acessada quando o usuário clicar em um repositório favoritado, essa página deve conter apenas o Header da aplicação. O conteúdo da página será uma WebView, ou seja, um browser integrado que exibe o atributo `html_url` presente no objeto do repositório que vem da API do Github.
-
-Documentação de utilização da [WebView](https://github.com/react-native-community/react-native-webview/blob/master/docs/Getting-Started.md).
+Nova página na aplicação que será acessada quando o usuário clicar em um repositório favoritado. Essa página contém apenas o Header da aplicação. 
+O conteúdo da página é uma WebView, ou seja, um browser integrado que exibe o atributo `html_url` presente no objeto do repositório que vem da API do Github.
 
 Exemplo de código:
 
@@ -88,7 +87,7 @@ Resultado:
 
 ## 📅 Entrega
 
-Esse desafio **não precisa ser entregue** e não receberá correção, mas você pode ver o resultado do [código do desafio aqui](https://github.com/Rocketseat/bootcamp-gostack-desafio-06). Após concluir o desafio, adicionar esse código ao seu Github é uma boa forma de demonstrar seus conhecimentos para oportunidades futuras.
+Esse desafio não foi entregue e não recebeu nenhuma correção, mas o código original do desafio produzido pela Rocketseat pode ser visto [aqui](https://github.com/Rocketseat/bootcamp-gostack-desafio-06). 
 
 ## :memo: Licença
 
@@ -96,4 +95,6 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 ---
 
-Feito com ♥ by Rocketseat :wave: [Entre na nossa comunidade!](https://discordapp.com/invite/gCRAFhc)
+Feito com ♥ by Marcelo Silva
+
+Inspirado e motivado pelo trabalho feito com ♥ by Rocketseat :wave: [Entre na nossa comunidade!](https://discordapp.com/invite/gCRAFhc)
